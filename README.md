@@ -7,6 +7,9 @@
 
 ```js
 class Quadrilateral {
+  // properties defined outside of the constructor are inherited too!
+  description = '4-sided shape';
+
   constructor(side1, side2, side3, side4) {
     this.side1 = side1;
     this.side2 = side2;
@@ -60,17 +63,14 @@ console.log(mySquare.getDiagonal()); // 7.07
 **Questions to answer:**
 - What does `Rectangle` inherit from `Quadrilateral`?
   - ...
-- Why does the constructor of `Rectangle` only need two parameters?
-  - ...
 - What does `super()` do? 
   - ...
 - What does `Square` inherit from `Rectangle`?
   - ...
 - What does `Square` inherit from `Quadrilateral`?
   - ...
-- What does `instanceof` do?
+- What does `x instanceof y` do?
   - ...
-
 
 ## Review: Polymorphism
 
@@ -124,50 +124,17 @@ animals.forEach((animal) => {
   
 
 ## **Challenge: User Roles in a System**  
-**Task:** Create a `User` class and extend it with `Admin` and `Guest`. Each role has different access permissions:
+**Task:** In `challenge.js`, create a `User` class and extend it with `Admin` and `Guest`. Each role has different access permissions:
 - `User` has `username` and a `getPermissions()` method (returns `"Create and Read"`).  
 - `Admin` overrides `getPermissions()` to return `"Create, Read, Update, Delete"`.  
 - `Guest` overrides `getPermissions()` to return `"Read-only"`.  
 
-**<details><summary>Example Solution:</summary>**
- 
-```js
-class User {
-  constructor(username) {
-    this.username = username;
-  }
-
-  getPermissions() {
-    return "Create and Read";
-  }
-}
-
-class Admin extends User {
-  getPermissions() {
-    return "Create, Read, Update, Delete";
-  }
-}
-
-class Guest extends User {
-  getPermissions() {
-    return "Read-only";
-  }
-}
-
-const normalUser = new User("Gavin");
-const admin = new Admin("Alice");
-const guest = new Guest("Bob");
-
-console.log(normalUser.getPermissions()); // "Create and Read"
-console.log(admin.getPermissions()); // "Create, Read, Update, Delete"
-console.log(guest.getPermissions()); // "Read-only"
-```
-
-</details>
+> See `challenge-solution.js` for the solution.
 
 ## Key points:
   - **Inheritance** allows classes to inherit properties and methods using the `extends` keyword
     - `super()` invokes the parent constructor and *must* be used if overriding the constructor. 
+    - `super.method` will invoke the superclass's version of the method
   - **Polymorphism** lets subclasses define their own behavior.  
   - **Method overriding** customizes inherited behavior.  
 
