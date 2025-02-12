@@ -1,9 +1,3 @@
-/* 
-Implement a `Vehicle` class and extend it with `Car` and `Bike` classes.  
-- `Vehicle` has `type` and `move()` (`move()` returns `"Moving..."`).  
-- `Car` and `Bike` override `move()` (e.g., `"Driving..."` or `"Riding..."`). 
-*/
-
 class Quadrilateral {
   constructor(side1, side2, side3, side4) {
     this.side1 = side1;
